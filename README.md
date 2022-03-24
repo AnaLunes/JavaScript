@@ -1,7 +1,6 @@
 # JavaScript
 Repositório voltado ao envio de atividades referentes ao curso de desenvolvimento web.
 ## Resolução dos exercícios do módulo 14 - JavaScript
-A resposta dos exercícios também estarão presentes no documento JavaScript.
 
 1. Resolução das operações:
   * 10 + 15 = ```25 (number)```
