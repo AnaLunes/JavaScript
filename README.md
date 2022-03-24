@@ -51,8 +51,8 @@ e) Quantas prestações são necessárias para pagar o valor do carro com uma en
   ```
     1. Junta-se as informações que se tem primeiramente.
     2. Pega-se o valor total do carro (30.000) e subtrai pelo valor da entrada (3.000), dando o seguinte resultado: 30000 – 3000 = 27000.
-    3.	O resultado dessa subtração (27000) é dividida pela prestação (750), dando o seguinte resultado: 27.000 / 750 = 36.
-    4.	Temos então a quantidade de prestações (36) necessárias para “quitar” o carro.
+    3. O resultado dessa subtração (27000) é dividida pela prestação (750), dando o seguinte resultado: 27.000 / 750 = 36.
+    4. Temos então a quantidade de prestações (36) necessárias para “quitar” o carro.
 
     <script>
       function obterParcela(){
