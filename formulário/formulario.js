@@ -10,7 +10,6 @@ formulario.addEventListener('submit', function(evento) {
     return false;
   }
 
-
   let dados = new FormData(this); //para não precisar repetir a expressão "getElementById('formulario-01')" podemos utilizar o "this"
 
   let notas = [];
@@ -65,21 +64,18 @@ function validaCampoNumerico(elemento) {
     event.preventDefault();
 
     let numero = this.value.match(/^[\d]5-[\d]3/) ? this.value.replace(/-/, "") : this.value; //valida cep
-   
-    if(numero != "" && numero.match(/[0-9]*/) && numero >= 0 && numero <= 10) {
-      document.querySelector('.mensagem').innerHTML = "";
+    if(numero != "" && numero.match(/[0-9]*/) && numero >= 0 && numero < 10) {
+      document.querySelector('.mensagem').innerHTML = "verifique o preenchimento dos campos em vermelho!";
       this.classList.remove('erro');
       this.parentNode.classList.remove('erro');
     } else {
-      document.querySelector('.mensagem').innerHTML = "verifique o preenchimento dos campos em vermelho!";
+      document.querySelector('.mensagem').innerHTML = "";
       this.classList.add('erro');
       this.parentNode.classList.add('erro');
       return false;
-    }
-  
-  
+    } 
+    
   });
-
 }
 
 function validaEmail(elemento) {
@@ -103,9 +99,32 @@ function validaEmail(elemento) {
   });
 }
 
+function validaUf(elemento) {
+  
+  elemento.addEventListener('focusout', function(event) {
+  
+    event.preventDefault();
+    
+    const ufValido = /^(\s*(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO)?)$/i; 
+    if(this.value.match(ufValido) ) { 
+      document.querySelector('.mensagem').innerHTML = "verifique o preenchimento dos campos em vermelho!";
+      this.classList.add('erro');
+      this.parentNode.classList.add('erro');
+    } else {
+      document.querySelector('.mensagem').innerHTML = "";
+      this.classList.remove('erro');
+      this.parentNode.classList.remove('erro');
+      return false;
+    }
+
+  });
+}
+
+
 let camposObrigatorios = document.querySelectorAll('input.obrigatorio');
 let camposNumericos = document.querySelectorAll('input.numero');
 let camposEmail = document.querySelectorAll('input.email');
+let camposUf = document.querySelectorAll('input.uf');
 
 for( let emFoco of camposObrigatorios) {
   validaCampo(emFoco);
@@ -117,4 +136,8 @@ for( let emFoco of camposNumericos) {
 
 for( let emFoco of camposEmail) {
   validaEmail(emFoco);
+}
+
+for( let emFoco of camposUf) {
+  validaUf(emFoco);
 }
